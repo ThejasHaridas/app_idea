@@ -20,10 +20,10 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Setup Gradle 8.2.2
+      - name: Setup Gradle 8.7
         uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: '8.2.2'
+          gradle-version: '8.7'
 
       - name: Accept Android SDK licenses
         run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
@@ -41,11 +41,3 @@ jobs:
           name: UPITracker-debug
           path: android/app/build/outputs/apk/debug/UPITracker-debug.apk
           retention-days: 30
-
-      - name: Show download instructions
-        run: |
-          echo "===================================="
-          echo "APK built successfully!"
-          echo "Go to: Actions tab > this run > Artifacts section"
-          echo "Download: UPITracker-debug"
-          echo "===================================="
